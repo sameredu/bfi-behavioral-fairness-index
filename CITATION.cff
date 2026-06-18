@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the dataset."
+title: "Behavioral Fairness Index (BFI) — Infrastructure-Aware Behavioral Fairness Theory"
+authors:
+  - family-names: Yaghi
+    given-names: Samer
+    affiliation: "University College of Applied Sciences (UCAS), Gaza; Islamic University of Gaza (IUG)"
+    orcid: "https://orcid.org/0009-0001-0268-7163"
+  - family-names: AbuSamra
+    given-names: Aiman A.
+    affiliation: "Islamic University of Gaza (IUG)"
+version: 1.0.0
+date-released: 2026-01-01
+license: MIT
+repository-code: "https://github.com/sameredu/iabft-behavioral-fairness-index"
+references:
+  - type: data
+    title: "Web Databases — Anonymized Moodle Examination Dataset for Fairness-Aware Learning Analytics"
+    authors:
+      - family-names: Yaghi
+        given-names: Samer
+      - family-names: AbuSamra
+        given-names: Aiman A.
+    doi: "10.5281/zenodo.20366538"
+    year: 2026
