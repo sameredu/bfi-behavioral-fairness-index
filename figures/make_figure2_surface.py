@@ -3,10 +3,12 @@ Figure 2 — Three-dimensional BFI fairness response surface.
 Theoretical visualization generated directly from Equation (11):
     BFI(P, R; d) = alpha*P + beta*R + gamma*(1 - d)
 """
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-from bfi_iabft import BFIWeights, bfi, TAU1, TAU2
+from bfi import BFIWeights, bfi, TAU1, TAU2
 
 def main(out="Figure2_BFI_Surface.png"):
     w = BFIWeights()
@@ -25,9 +27,6 @@ def main(out="Figure2_BFI_Surface.png"):
     ax.set_ylabel("R (Recovery Score)")
     ax.set_zlabel("BFI")
     ax.set_zlim(0, 1)
-    ax.set_title("Figure 2. BFI Fairness Response Surface (D_hat = 0.20)\n"
-                 "Theoretical visualization from Equation (11)",
-                 fontsize=11, fontweight="bold")
     fig.colorbar(surf, shrink=0.5, aspect=12, label="BFI Value")
     plt.tight_layout()
     plt.savefig(out, dpi=300, bbox_inches="tight", facecolor="white")

@@ -11,8 +11,11 @@ Run:
 """
 
 from __future__ import annotations
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+
 import numpy as np
-from bfi_iabft import BFIWeights, bfi, decision_tier, stability_distance, TAU1, TAU2
+from bfi import BFIWeights, bfi, decision_tier, stability_distance, TAU1, TAU2
 
 RNG = np.random.default_rng(42)
 

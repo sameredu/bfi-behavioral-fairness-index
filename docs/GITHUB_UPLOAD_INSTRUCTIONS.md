@@ -1,93 +1,55 @@
-# Publishing this repository on GitHub (public, citable, reusable)
+# How to publish this repository on GitHub
 
-This release is **non-anonymized** and intended for public, reusable, citable
-distribution. Author names, affiliations, ORCID, and the Zenodo dataset DOI are
-included throughout.
+> The repository name used in the paper and CITATION.cff is
+> `iabft-behavioral-fairness-index`. Change it everywhere if you prefer another name.
 
-> Repository name used in `CITATION.cff`, `pyproject.toml`, and the paper:
-> `iabft-behavioral-fairness-index`
-> Owner used in the URLs: `sameredu` — change both if you use a different account/name.
-
----
-
-## Step 1 — create the repository on GitHub
+## Option A — via the GitHub web interface (no command line)
 
 1. Go to https://github.com/new
-2. **Repository name:** `iabft-behavioral-fairness-index`
-3. **Description:**
-   *Behavioral Fairness Index (BFI) — Infrastructure-Aware Behavioral Fairness Theory: installable Python package, simulation, and figures.*
-4. **Visibility:** Public
-5. Do **not** add a README/license/.gitignore (this folder already has them).
-6. Click **Create repository**.
+2. Repository name: `iabft-behavioral-fairness-index`
+3. Description: *Infrastructure-Aware Behavioral Fairness Theory — Behavioral Fairness Index (BFI): reference implementation, simulation, and figures.*
+4. Choose **Public** (or **Private** during double-blind review).
+5. Do **not** initialize with a README (this folder already has one).
+6. Create the repository, then on the next page click **uploading an existing file**
+   and drag in the contents of this folder.
 
-## Step 2 — push the code (command line)
+## Option B — via the command line (git)
 
 From inside this folder:
 
 ```bash
 git init
 git add .
-git commit -m "Initial public release: bfi-iabft v1.0.0 (BFI / IABFT)"
+git commit -m "Initial release: BFI reference implementation, simulation, and figures"
 git branch -M main
+
+# create the empty repo first on github.com, then:
 git remote add origin https://github.com/sameredu/iabft-behavioral-fairness-index.git
 git push -u origin main
 ```
 
-If prompted for a password, paste a **Personal Access Token** instead
-(GitHub -> Settings -> Developer settings -> Personal access tokens -> Fine-grained,
-with `Contents: Read and write` on this repo).
-
-### Or with the GitHub CLI
+If you use a personal access token instead of a password:
 
 ```bash
-gh repo create sameredu/iabft-behavioral-fairness-index \
-  --public --source=. --remote=origin --push \
-  --description "Behavioral Fairness Index (BFI) — IABFT"
+# when prompted for password, paste your token (Settings -> Developer settings -> Tokens)
+git push -u origin main
 ```
 
-## Step 3 — make it discoverable
-
-On the repo page -> gear next to **About**:
-
-- **Topics:** learning-analytics, algorithmic-fairness, educational-data-mining,
-  fair-assessment, moodle, python
-- Tick **Releases** and **Packages** visibility.
-
-## Step 4 — cut a release and mint a software DOI (Zenodo)
-
-1. Link GitHub to Zenodo: https://zenodo.org/account/settings/github/ -> toggle this repo ON.
-2. On GitHub: **Releases -> Draft a new release**.
-   - Tag: `v1.0.0`  -  Title: `bfi-iabft v1.0.0`
-   - Description: short summary + link to the dataset DOI.
-   - **Publish release.**
-3. Zenodo automatically archives the release and mints a software DOI.
-4. Add the new DOI badge to `README.md` and cite it next to the dataset DOI.
-
-## Step 5 (optional) — publish to PyPI so anyone can `pip install bfi-iabft`
+## Option C — GitHub CLI
 
 ```bash
-pip install build twine
-python -m build                 # builds dist/*.whl and dist/*.tar.gz
-python -m twine upload dist/*    # needs a PyPI account + API token
+gh repo create sameredu/iabft-behavioral-fairness-index --public --source=. --remote=origin --push
 ```
 
-After this, the install line in the README and paper works as-is:
+## After pushing
 
-```bash
-pip install bfi-iabft
-```
+1. Add topics: `learning-analytics`, `fairness`, `educational-data-mining`, `moodle`.
+2. (Optional) Link Zenodo to the repo and cut a release `v1.0.0` to mint a software DOI.
+3. Confirm the README "Data availability" Zenodo link resolves:
+   https://doi.org/10.5281/zenodo.20366538
 
----
+## Double-blind reminder
 
-## Reusability checklist (already satisfied in this repo)
-
-- [x] MIT license (`LICENSE`)
-- [x] Installable package with clean API (`pyproject.toml`, `bfi_iabft/`)
-- [x] Command-line interface (`bfi-iabft demo | simulate | analyze`)
-- [x] 12 passing unit tests (`tests/`)
-- [x] Reproducible simulation of Theorems T1-T5 (`simulation/`)
-- [x] Figure-regeneration scripts (`figures/`)
-- [x] Machine-readable citation (`CITATION.cff`)
-- [x] Pinned dependencies (`requirements.txt`, optional extras)
-- [x] Dataset referenced via DOI, not bundled (`docs/DATA_AND_CODE_AVAILABILITY.md`)
-- [x] No student data or secrets committed (`.gitignore` excludes `data/`, `*.xlsx`)
+While the paper is under double-blind review, keep the repo **private** and share an
+anonymized link with the editor, or mirror it on https://anonymous.4open.science .
+De-anonymize (make public, restore names/ORCID) only after acceptance.

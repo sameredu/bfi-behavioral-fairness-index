@@ -9,8 +9,8 @@ authors:
   - family-names: AbuSamra
     given-names: Aiman A.
     affiliation: "Islamic University of Gaza (IUG)"
-version: 1.0.0
-date-released: 2026-01-01
+version: 2.0.0
+date-released: 2026-10-24
 license: MIT
 repository-code: "https://github.com/sameredu/iabft-behavioral-fairness-index"
 references:

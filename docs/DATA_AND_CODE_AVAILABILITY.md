@@ -36,9 +36,8 @@ scripts read the dataset files downloaded separately from the Zenodo record abov
 - [x] Dependency versions pinned (`requirements.txt`)
 - [x] Dataset openly archived with a citable DOI (Zenodo)
 
-## Public release note
+## Double-blind note
 
-This repository is released publicly and non-anonymized for reuse and citation.
-If the companion manuscript is under double-blind review at any venue, cite the code
-and data by DOI in the camera-ready version, and (if the venue requires it during
-review) share an anonymized mirror with the editor until acceptance.
+For double-blind review, replace the GitHub and ORCID identifiers above with an
+anonymized mirror (e.g., an anonymized GitHub or anonymous.4open.science link) until
+acceptance, then de-anonymize in the camera-ready version.

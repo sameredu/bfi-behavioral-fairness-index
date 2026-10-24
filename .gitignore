@@ -1,14 +1,10 @@
 __pycache__/
 *.pyc
-*.pyo
 venv/
 .venv/
 data/
 *.xlsx
-*.png
 .DS_Store
 .ipynb_checkpoints/
 *.egg-info/
-build/
-dist/
-.pytest_cache/
+results/

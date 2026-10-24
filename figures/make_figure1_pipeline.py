@@ -8,22 +8,18 @@ fig, ax = plt.subplots(figsize=(16, 8.5))
 ax.set_xlim(0, 100); ax.set_ylim(0, 100); ax.axis('off')
 
 # Title
-ax.text(50, 97, 'Figure 1. End-to-End Computational Pipeline of the Behavioral Fairness Index (BFI)',
-        ha='center', va='top', fontsize=18, fontweight='bold', color='#1a3e6e')
-ax.text(50, 92.5, 'Five processing layers transforming raw Moodle logs into a fairness-aware intervention decision',
-        ha='center', va='top', fontsize=13, color='#444', style='italic')
 
 layers = [
-    ('1', 'INPUT LAYER', 'Raw LMS (Moodle) Data', '#1f6fb2', '#dceaf5',
-     ['Raw Moodle event logs', 'Timestamped actions', 'Submission traces']),
+    ('1', 'INPUT LAYER', 'Moodle Examination Data', '#1f6fb2', '#dceaf5',
+     ['Moodle quiz attempt reports', 'Start / end timestamps, duration', 'Per-item responses and scores']),
     ('2', 'FEATURE\nENGINEERING', 'Behavioral Signals', '#2e8b4f', '#dff0e5',
-     ['F\u2081  Inactivity variance', 'F\u2082  Initial latency', 'F\u2083  Efficiency ratio',
-      'F\u2084  Behavioral divergence', 'F\u2085  Vulnerability index']),
-    ('3', 'MODEL LAYER', 'Prediction & Estimation', '#e08a1e', '#fcefd9',
-     ['Random Forest \u2192 P\u1d62', 'Recovery estimator \u2192 R\u1d62', 'Golden Profile \u2192 G\u1d62']),
+     ['u  Weighted unanswered share', '\u2113  Entry latency', 's  Short-session flag',
+      '\u03c4  Time-use ratio', 'e  Ended at window close']),
+    ('3', 'EVIDENCE LAYER', 'Signal Construction', '#e08a1e', '#fcefd9',
+     ['Noisy-OR of u, \u2113, s \u2192 P\u1d62', 'Next-session completion \u2192 R\u1d62', 'Golden Profile (EMA) \u2192 D\u0302\u1d62']),
     ('4', 'MATHEMATICAL\nLAYER', 'BFI Computation', '#7a4fa3', '#ece4f3',
      ['Inputs: P\u1d62, R\u1d62, D\u0302\u1d62', 'BFI\u1d62 = \u03b1P\u1d62 + \u03b2R\u1d62 + \u03b3(1\u2212D\u0302\u1d62)',
-      '\u03b1+\u03b2+\u03b3 = 1,  weights \u2265 0', 'Output \u2208 [0, 1]']),
+      '\u03b1+\u03b2+\u03b3 = 1,  weights > 0', 'Output \u2208 [0, 1]']),
     ('5', 'DECISION LAYER', 'Fairness-Aware Action', '#c0392b', '#fbe3e0',
      ['BFI \u2265 0.80 \u2192 Auto intervention', '0.60 \u2264 BFI < 0.80 \u2192 Review', 'BFI < 0.60 \u2192 No action']),
 ]
@@ -88,11 +84,11 @@ for i in range(n-1):
     ax.add_patch(arr)
 
 # bottom caption strip
-ax.text(50, 8, 'The pipeline enforces Axioms A1\u2013A5 in the Mathematical Layer and the stability guarantees of Theorems T1\u2013T5,',
+ax.text(50, 8, 'The pipeline enforces Axioms A1\u2013A6 in the Mathematical Layer and the stability guarantees of Theorems T0\u2013T5,',
         ha='center', va='center', fontsize=11, color='#333')
 ax.text(50, 4.5, 'producing a transparent, bounded, and interpretable fairness score that drives the three-tier intervention decision.',
         ha='center', va='center', fontsize=11, color='#333')
 
 plt.tight_layout()
-plt.savefig('Figure1_Pipeline_v2.png', dpi=300, bbox_inches='tight', facecolor='white')
-print('saved Figure1_Pipeline_v2.png')
+plt.savefig('Figure1_Pipeline.png', dpi=300, bbox_inches='tight', facecolor='white')
+print('saved Figure1_Pipeline.png')

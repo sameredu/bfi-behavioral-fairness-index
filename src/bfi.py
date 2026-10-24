@@ -167,24 +167,11 @@ def recommend_weights(p, r, d_hat) -> BFIWeights:
     return BFIWeights(alpha=a, beta=b, gamma=g)
 
 
-def lipschitz_constants(weights: BFIWeights | None = None) -> dict:
-    """Tight Lipschitz constants of BFI = <w, x> by perturbation norm.
-
-    By Holder duality, for an L_p perturbation the tight constant is ||w||_q
-    with 1/p + 1/q = 1:
-
-        L1  perturbation  -> L = max_i |w_i|     (q = inf)
-        L2  perturbation  -> L = ||w||_2         (q = 2)
-        Linf perturbation -> L = sum_i |w_i|     (q = 1)
-
-    Theorem T4 in the paper is stated in the L1 norm, for which L = max(w).
-    Returns a dict {'L1', 'L2', 'Linf'}.
-    """
-    if weights is None:
-        weights = BFIWeights()
-    w = np.array([weights.alpha, weights.beta, weights.gamma], dtype=float)
-    return {
-        "L1": float(np.max(np.abs(w))),          # = max(alpha, beta, gamma)
-        "L2": float(np.sqrt(np.sum(w ** 2))),    # = ||w||_2
-        "Linf": float(np.sum(np.abs(w))),        # = 1.0 on the simplex
-    }
+if __name__ == "__main__":
+    w = BFIWeights()
+    print("BFI demo")
+    print("  weights:", w, " L =", w.lipschitz_constant)
+    for (p, r, dh) in [(0.9, 0.9, 0.05), (0.7, 0.6, 0.30), (0.2, 0.1, 0.70)]:
+        s = bfi(p, r, dh, w)
+        print(f"  P={p} R={r} D_hat={dh} -> BFI={s:.3f}"
+              f"  tier={decision_tier(s)}  rho={stability_distance(s):.3f}")
