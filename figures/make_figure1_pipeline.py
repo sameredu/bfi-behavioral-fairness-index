@@ -14,14 +14,14 @@ layers = [
      ['Moodle quiz attempt reports', 'Start / end timestamps, duration', 'Per-item responses and scores']),
     ('2', 'FEATURE\nENGINEERING', 'Behavioral Signals', '#2e8b4f', '#dff0e5',
      ['u  Weighted unanswered share', '\u2113  Entry latency', 's  Short-session flag',
-      '\u03c4  Time-use ratio', 'e  Ended at window close']),
+      'a  Answered-item accuracy']),
     ('3', 'EVIDENCE LAYER', 'Signal Construction', '#e08a1e', '#fcefd9',
-     ['Noisy-OR of u, \u2113, s \u2192 P\u1d62', 'Next-session completion \u2192 R\u1d62', 'Golden Profile (EMA) \u2192 D\u0302\u1d62']),
+     ['Noisy-OR of u, \u2113, s \u2192 P\u1d62', 'Next-session completion \u2192 R\u1d62', 'Golden Profile on a \u2192 D\u0302\u1d62']),
     ('4', 'MATHEMATICAL\nLAYER', 'BFI Computation', '#7a4fa3', '#ece4f3',
-     ['Inputs: P\u1d62, R\u1d62, D\u0302\u1d62', 'BFI\u1d62 = \u03b1P\u1d62 + \u03b2R\u1d62 + \u03b3(1\u2212D\u0302\u1d62)',
+     ['Inputs: P\u1d62, R\u1d62, D\u0302\u1d62', '\u03b1P + \u03b2R + \u03b3[1\u2212(1\u2212P)D\u0302]',
       '\u03b1+\u03b2+\u03b3 = 1,  weights > 0', 'Output \u2208 [0, 1]']),
     ('5', 'DECISION LAYER', 'Fairness-Aware Action', '#c0392b', '#fbe3e0',
-     ['BFI \u2265 0.80 \u2192 Auto intervention', '0.60 \u2264 BFI < 0.80 \u2192 Review', 'BFI < 0.60 \u2192 No action']),
+     ['BFI \u2265 0.80 \u2192 Auto intervention', '0.60\u20130.80 & P \u2265 0.05 \u2192 Review', 'Otherwise \u2192 No action']),
 ]
 
 n = len(layers)

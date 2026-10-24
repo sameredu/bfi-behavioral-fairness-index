@@ -26,12 +26,16 @@ def load():
             # weight by question max
             ans_w=1-(qmax*unans[i]).sum()/qmax.sum()
             fully_graded= not ng[i].any()
+            # answered-item accuracy over auto-graded items that reached the server
+            # (disruption-insensitive by construction: unanswered and ungraded items are excluded)
+            gm=~np.isnan(num[i]) & ~unans[i]
+            acc=(num[i][gm].sum()/qmax[gm].sum()) if gm.any() and qmax[gm].sum()>0 else np.nan
             rows.append(dict(student=df.Student_Label[i],section=df.Section[i],exam=code,kind=kind,order=k,
                 n_q=len(qs),unans_ratio=unans[i].mean(),answered_w=ans_w,
                 latency=(st[i]-open_d[i]).total_seconds()/60, duration=dur(df.Duration[i]), window=(close_d[i]-open_d[i]).total_seconds()/60,
                 ended_at_close=(close_d[i]-en[i]).total_seconds()/60<=1,
                 score_frac=(tot[i]/tmax) if fully_graded and not np.isnan(tot[i]) else np.nan,
-                fully_graded=fully_graded))
+                fully_graded=fully_graded, acc=acc, n_acc_items=int(gm.sum())))
     return pd.DataFrame(rows)
 if __name__=='__main__':
     S=load(); S.to_csv('sessions.csv',index=False)

@@ -18,8 +18,8 @@ by the authors and is not released), email addresses were removed, and k-anonymi
 was verified. No network telemetry or device data were collected; the analysis is based solely
 on Moodle examination logs.
 
-The source code that implements the Behavioral Fairness Index, runs the synthetic simulation
-used to verify Theorems T1–T5, and reproduces all figures and tables is openly available at:
+The source code that implements the Behavioral Fairness Index, tests it against Axioms A1–A6,
+and reproduces all figures and tables is openly available at:
 
 > https://github.com/sameredu/iabft-behavioral-fairness-index
 
@@ -28,12 +28,12 @@ scripts read the dataset files downloaded separately from the Zenodo record abov
 
 ## Reproducibility checklist
 
-- [x] Core BFI implementation (`src/bfi.py`)
-- [x] Synthetic simulation verifying Theorems T1–T5 (`simulation/run_simulation.py`)
+- [x] BFI pipeline (`src/pipeline.py`) and data loader (`src/load.py`)
+- [x] One-command reproduction of all results (`src/run_all.py`)
+- [x] Unit tests of Axioms A1–A6, Lipschitz bounds and the evidence gate (`tests/test_bfi.py`)
+- [x] Ablation of the earlier linear specification (`src/ablation.py`)
 - [x] Figure-generation scripts (`figures/`)
-- [x] Empirical analysis entry point (`src/analyze_real_data.py`)
-- [x] Fixed random seed (42) for reproducible synthetic results
-- [x] Dependency versions pinned (`requirements.txt`)
+- [x] Fixed random seeds (2026, 7, 0)
 - [x] Dataset openly archived with a citable DOI (Zenodo)
 
 ## Double-blind note

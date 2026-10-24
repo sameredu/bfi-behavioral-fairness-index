@@ -7,7 +7,7 @@
 
 1. Go to https://github.com/new
 2. Repository name: `iabft-behavioral-fairness-index`
-3. Description: *Infrastructure-Aware Behavioral Fairness Theory — Behavioral Fairness Index (BFI): reference implementation, simulation, and figures.*
+3. Description: *Infrastructure-Aware Behavioral Fairness Theory — Behavioral Fairness Index (BFI): reference implementation, tests, and full reproduction code.*
 4. Choose **Public** (or **Private** during double-blind review).
 5. Do **not** initialize with a README (this folder already has one).
 6. Create the repository, then on the next page click **uploading an existing file**
@@ -20,7 +20,7 @@ From inside this folder:
 ```bash
 git init
 git add .
-git commit -m "Initial release: BFI reference implementation, simulation, and figures"
+git commit -m "Initial release: BFI reference implementation, tests, and full reproduction code"
 git branch -M main
 
 # create the empty repo first on github.com, then:
