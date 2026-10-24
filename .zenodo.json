@@ -1,0 +1,18 @@
+{
+  "title": "iabft-behavioral-fairness-index: Behavioral Fairness Index (BFI) for Online Examinations under Infrastructure Disruption",
+  "upload_type": "software",
+  "version": "3.2.0",
+  "description": "Reproduction code for the paper 'When the Recorded Score Is Not the Evidence: An Axiomatic Behavioral Fairness Index for Online Examinations under Infrastructure Disruption'. Implements the gated Behavioral Fairness Index BFI = alpha*P + beta*R + gamma*[1 - (1 - P)*Dhat], the evidence-gated decision rule, unit tests of Axioms A1-A6, the stability analysis (Theorem T5), validity and robustness analyses, an ablation of the linear specification, and the scripts for Figures 1-4. Running src/run_all.py on the Zenodo dataset (doi:10.5281/zenodo.20366538) reproduces every number, table and figure in the paper. Versions 1.x and 2.x are superseded and should not be used to reproduce the paper.",
+  "creators": [
+    {"name": "Yaghi, Samer", "affiliation": "University College of Applied Sciences (UCAS), Gaza, Palestine; Islamic University of Gaza (IUG)", "orcid": "0009-0001-0268-7163"},
+    {"name": "AbuSamra, Aiman Ahmad", "affiliation": "Islamic University of Gaza (IUG), Palestine", "orcid": "0000-0003-4652-3993"}
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": ["learning analytics", "educational data mining", "algorithmic fairness", "individual fairness", "axiomatic characterization", "online examinations", "Moodle", "digital inequality", "assessment validity", "Gaza"],
+  "related_identifiers": [
+    {"relation": "requires", "identifier": "10.5281/zenodo.20366538", "scheme": "doi", "resource_type": "dataset"},
+    {"relation": "references", "identifier": "10.1007/s44217-026-02182-6", "scheme": "doi", "resource_type": "publication-article"},
+    {"relation": "references", "identifier": "10.5281/zenodo.21505628", "scheme": "doi", "resource_type": "software"}
+  ]
+}

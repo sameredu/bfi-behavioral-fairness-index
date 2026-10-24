@@ -2,6 +2,14 @@
 
 All notable changes to this repository. Each release states what triggered it. Releases 2.0.0–3.2.0 come from internal review of the code and the manuscript before submission, not from peer review.
 
+## [3.2.0] — 2026-10-24
+**Trigger:** preparation of the manuscript's final figures.
+- Figure 1 redrawn at the manuscript's text width (6.33 in) so that no label is scaled down; the arrows now show which feature feeds which signal.
+- `make_figure1_pipeline.py` asserts that every formula and threshold drawn in the figure matches `src/pipeline.py`; the script fails if they diverge.
+- Figure 1 exported as PNG, PDF and SVG (vector formats for publication).
+- Added `.zenodo.json` (authors, ORCIDs, license, related identifiers) for the Zenodo–GitHub integration.
+- No change to the index, the data pipeline or any reported number.
+
 ## [3.1.0] — 2026-10-24
 **Trigger:** pre-submission review comments on the manuscript (reliance on future information, threshold choice, generalizability).
 - `src/robustness.py`: results split by observed vs imputed recovery; a real-time variant that uses no future information (R = 0.5 for every session); a 3 × 3 grid of thresholds (τ₁ ∈ {0.55, 0.60, 0.65}, τ₂ ∈ {0.75, 0.80, 0.85}).
