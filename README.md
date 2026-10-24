@@ -29,6 +29,7 @@ src/load.py          7 Zenodo files -> one row per session (675)
 src/pipeline.py      features, P, R, Dhat, gated BFI, decision rule (Algorithm 1)
 src/analyze.py       tiers, stability (Theorem T5), sensitivity, validity, baselines, bootstrap CIs
 src/ablation.py      linear BFI with unconditional consistency and timing-based divergence
+src/robustness.py    recovery observed vs imputed, real-time variant (R = 0.5), threshold sensitivity
 src/run_all.py       runs everything
 figures/             Figure 1 (pipeline), Figures 2-4 (response surface, stability, validity)
 tests/test_bfi.py    Axioms A1-A6, Lipschitz bounds, evidence gate
@@ -38,6 +39,7 @@ tests/test_bfi.py    Axioms A1-A6, Lipschitz bounds, evidence gate
 
 | Version | Change |
 |---|---|
+| 3.1.0 | Robustness analyses: recovery availability, real-time variant, threshold grid |
 | 3.0.0 | Conditional-consistency axiom (A4), divergence from answered-item accuracy, evidence gate, equal weights of 1/3, unit tests, ablation |
 | 2.0.0 | Replaced the v1 placeholder analysis (`R = 1 - P`) with the actual pipeline; exact flip-probability formula |
 | 1.0.0 | Initial release (superseded; could not reproduce the numbers in the first manuscript) |

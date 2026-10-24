@@ -2,6 +2,11 @@
 
 All notable changes to this repository. Each release states what triggered it. Releases 2.0.0–3.2.0 come from internal review of the code and the manuscript before submission, not from peer review.
 
+## [3.1.0] — 2026-10-24
+**Trigger:** pre-submission review comments on the manuscript (reliance on future information, threshold choice, generalizability).
+- `src/robustness.py`: results split by observed vs imputed recovery; a real-time variant that uses no future information (R = 0.5 for every session); a 3 × 3 grid of thresholds (τ₁ ∈ {0.55, 0.60, 0.65}, τ₂ ∈ {0.75, 0.80, 0.85}).
+- `run_all.py` runs the new analyses; all earlier results are unchanged.
+
 ## [3.0.0] — 2026-10-24
 **Trigger:** re-running v2.0.0 on the real data showed a conflict between two axioms: the unconditional consistency axiom (A4) penalized exactly the sessions that the disruption axiom (A2) is meant to protect (r(P, 1 − D̂) = −0.55). The paper's emphasis also shifted from formal theory alone toward empirical validation on the examination data.
 - **Index changed** to the gated form BFI = αP + βR + γ[1 − (1 − P)D̂] (conditional consistency, Axiom A4), characterized by a new representation theorem.
