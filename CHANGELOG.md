@@ -2,6 +2,11 @@
 
 All notable changes to this repository. Each release states what triggered it. Releases 2.0.0–3.2.0 come from internal review of the code and the manuscript before submission, not from peer review.
 
+## [3.2.1] — 2026-10-25
+- Repository renamed from `iabft-behavioral-fairness-index` to `bfi-behavioral-fairness-index`; repository links in `CITATION.cff`, `docs/` and `.zenodo.json` updated.
+- Removed `docs/GITHUB_UPLOAD_INSTRUCTIONS.md` (one-off setup notes).
+- No change to the code, the index or any reported number.
+
 ## [3.2.0] — 2026-10-24
 **Trigger:** preparation of the manuscript's final figures.
 - Figure 1 redrawn at the manuscript's text width (6.33 in) so that no label is scaled down; the arrows now show which feature feeds which signal.

@@ -21,7 +21,7 @@ on Moodle examination logs.
 The source code that implements the Behavioral Fairness Index, tests it against Axioms A1–A6,
 and reproduces all figures and tables is openly available at:
 
-> https://github.com/sameredu/iabft-behavioral-fairness-index
+> https://github.com/sameredu/bfi-behavioral-fairness-index
 
 under the MIT license. The repository does not contain the examination data; the analysis
 scripts read the dataset files downloaded separately from the Zenodo record above.

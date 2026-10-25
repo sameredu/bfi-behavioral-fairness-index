@@ -39,6 +39,7 @@ tests/test_bfi.py    Axioms A1-A6, Lipschitz bounds, evidence gate
 
 | Version | Change |
 |---|---|
+| 3.2.1 | Repository renamed to `bfi-behavioral-fairness-index`; links and metadata updated. No code change |
 | 3.2.0 | Figure 1 redrawn at print width, with labels checked against `pipeline.py` (asserts in the script); PNG, PDF and SVG output |
 | 3.1.0 | Robustness analyses: recovery availability, real-time variant, threshold grid |
 | 3.0.0 | Conditional-consistency axiom (A4), divergence from answered-item accuracy, evidence gate, equal weights of 1/3, unit tests, ablation |
